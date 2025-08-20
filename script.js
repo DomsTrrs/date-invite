@@ -25,22 +25,22 @@ function createHeart() {
   heart.classList.add("heart");
   heart.textContent = Math.random() > 0.5 ? "💖" : "💕";
 
-  // random horizontal position
+  // random horizontal position across whole screen
   heart.style.left = Math.random() * 100 + "vw";
 
   // random sideways movement
-  heart.style.setProperty("--x-move", (Math.random() * 100 - 50) + "px");
+  heart.style.setProperty("--x-move", (Math.random() * 200 - 100) + "px");
 
   // random size
-  heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+  heart.style.fontSize = (Math.random() * 25 + 15) + "px";
 
   document.getElementById("hearts-container").appendChild(heart);
 
   // remove heart after animation
   setTimeout(() => {
     heart.remove();
-  }, 6000);
+  }, 8000);
 }
 
 // keep spawning hearts
-setInterval(createHeart, 500);
+setInterval(createHeart, 400);
