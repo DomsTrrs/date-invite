@@ -1,23 +1,33 @@
-let questions = [
-    "(click me more)", // first shown
-    "Sureee?",
-    "Really?",
-    "Okay rajud nimo?",
-    "Last nani, okay rajud?",
-    "Yeyy thank youuu hehhe 🎉💖"
-  ];
-  
-  let index = 1; // start from the second item
-  
-  function growButton(btn) {
-    // Grow button text size
-    let currentSize = parseFloat(window.getComputedStyle(btn).fontSize);
-    btn.style.fontSize = (currentSize + 5) + "px";
-  
-    // Update the subtext
-    if (index < questions.length) {
-      btn.querySelector(".btn-sub").textContent = questions[index];
-      index++;
-    }
+const yesBtn = document.getElementById("yesBtn");
+const questionsDiv = document.getElementById("questions");
+
+const questions = [
+  "Sure naka?",
+  "Really?",
+  "Okay rajud nimo?",
+  "Last nani, okay rajud?",
+  "Yeyy thank youuu hehhe 🥰"
+];
+
+let clickCount = 0;
+
+yesBtn.addEventListener("click", () => {
+  // Make button grow slightly every click
+  let currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+  yesBtn.style.fontSize = (currentSize + 2) + "px";
+
+  // Change button text on first click
+  if (clickCount === 0) {
+    yesBtn.textContent = "Yes";
   }
-  
+
+  // Add questions one by one
+  if (clickCount < questions.length) {
+    const p = document.createElement("p");
+    p.textContent = questions[clickCount];
+    p.classList.add("question");
+    questionsDiv.appendChild(p);
+  }
+
+  clickCount++;
+});
