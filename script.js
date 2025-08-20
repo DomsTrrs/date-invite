@@ -1,6 +1,6 @@
 let questions = [
   "(click me more)", 
-  "Sure naka?",
+  "Sureeee?",
   "Really?",
   "Okay rajud nimo?",
   "Last nani, okay rajud?",
@@ -26,3 +26,4 @@ function growButton(btn) {
     index++;
   }
 }
+
