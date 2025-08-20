@@ -14,7 +14,7 @@ let clickCount = 0;
 yesBtn.addEventListener("click", () => {
   // Make button grow slightly every click
   let currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
-  yesBtn.style.fontSize = (currentSize + 2) + "px";
+  yesBtn.style.fontSize = (currentSize + 1.5) + "px";
 
   // Change button text on first click
   if (clickCount === 0) {
