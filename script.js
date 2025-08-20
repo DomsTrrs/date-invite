@@ -1,28 +1,28 @@
-const yesBtn = document.getElementById("yesBtn");
-const questionsDiv = document.getElementById("questions");
-
-const questions = [
-  "Sureeee?",
+let questions = [
+  "(click me more)", 
+  "Sure naka?",
   "Really?",
   "Okay rajud nimo?",
   "Last nani, okay rajud?",
-  "Yeyy thank youuu hehhe 🥰"
+  "Yeyy thank youuu hehhe 🎉💖"
 ];
 
-let clickCount = 0;
+let index = 1;
 
-yesBtn.addEventListener("click", () => {
-  let currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
-  yesBtn.style.fontSize = (currentSize + 1.5) + "px";
+function growButton(btn) {
+  // Make button grow smoothly
+  btn.style.transform = "scale(1.1)";
+  setTimeout(() => {
+    btn.style.transform = "scale(1)";
+  }, 200);
 
-  if (clickCount === 0) yesBtn.textContent = "Yes ❤️";
+  // Increase padding (button grows)
+  let currentPadding = parseInt(window.getComputedStyle(btn).paddingTop);
+  btn.style.padding = (currentPadding + 5) + "px " + (currentPadding + 40) + "px";
 
-  if (clickCount < questions.length) {
-    const p = document.createElement("p");
-    p.textContent = questions[clickCount];
-    p.classList.add("question");
-    questionsDiv.appendChild(p);
+  // Update text inside button
+  if (index < questions.length) {
+    btn.querySelector(".btn-sub").textContent = questions[index];
+    index++;
   }
-
-  clickCount++;
-});
+}
